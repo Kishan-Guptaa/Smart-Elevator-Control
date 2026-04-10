@@ -32,57 +32,99 @@ This database design supports:
 The following entities are used in the system:
 
 1. Building
+   
    Stores building-level information such as name, address, and location.
+   
 2. Floor
+   
    Represents floors inside a building.
+   
    Represents floors inside a building.
+   
 3. Elevator Shaft
+   
    Represents shafts inside a building.
+   
    Each shaft contains one elevator.
+   
 4. Elevator
+   
    Stores elevator configuration details such as capacity, speed, and status availability.
+   
    Each elevator belongs to one building and one shaft.
+   
 5. Elevator_Floor
+   
    Acts as a junction table between elevators and floors.
+   
 
    This allows:
+   
    one elevator to serve multiple floors
+   
    one floor to be served by multiple elevators
+   
 6. Floor_Request
+   
    Stores ride requests generated from floors.
+   
 
    Includes:
+   
 
   - source floor
+    
   - destination floor
+    
   - direction (up/down)
+    
   - request status
+    
 7. Ride_Assignment
+   
   Tracks which elevator was assigned to a request.
+  
   Helps monitor request handling flow.
+  
 8. Ride_Log
+    
   Stores completed ride information for analytics.
+  
 
   Includes:
+  
 
   - start floor
+    
   - destination floor
+    
   - ride start time
+    
   - ride end time
+    
 9. Elevator_Status
+    
     Tracks real-time elevator condition such as:
 
+
   - idle
+    
   - moving
+    
   - maintenance
+    
   - out of service
+    
 10. Maintenance
+
 
   Stores maintenance history for elevators.
   
+  
   Includes issue details, duration, and maintenance status.
+  
 
-Relationships Between Entities :Main relationships in the system:
+### Relationships Between Entities :Main relationships in the system:
 
 - One building contains many floors
 - One building contains many elevators
@@ -96,7 +138,7 @@ Relationships Between Entities :Main relationships in the system:
 - One elevator has multiple maintenance records
 - One request creates one ride log entry
 
-Design Highlights : This ER diagram follows good database design practices:
+### Design Highlights : This ER diagram follows good database design practices:
 
 - Separates static configuration data from dynamic ride data
 - Supports many-to-many relationships using junction tables
@@ -105,7 +147,7 @@ Design Highlights : This ER diagram follows good database design practices:
 - Enables analytics using ride history
 - Scalable for multiple buildings and elevators
 
-Use Cases Supported : Using this system, operations teams can:
+### Use Cases Supported : Using this system, operations teams can:
 
 - monitor elevator availability
 - track pending ride requests
@@ -115,4 +157,5 @@ Use Cases Supported : Using this system, operations teams can:
 - identify elevators under maintenance
 - monitor real-time elevator movement
 
-Conclusion : This ER diagram represents a scalable and real-world database structure for a smart elevator infrastructure monitoring system used in large commercial buildings.It ensures efficient request handling, elevator tracking, maintenance monitoring, and ride analytics across multiple buildings.
+### Conclusion :
+This ER diagram represents a scalable and real-world database structure for a smart elevator infrastructure monitoring system used in large commercial buildings.It ensures efficient request handling, elevator tracking, maintenance monitoring, and ride analytics across multiple buildings.
